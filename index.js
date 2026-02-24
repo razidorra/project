@@ -24,6 +24,8 @@ const parts = [
   { name: "LED Scheinwerfer", category: "lichter", available: false },
   { name: "Ölfilter", category: "filter", available: true },
   { name: "Bremsbläge", category: "bremsen", available: true },
+  { name: "Reifen", category: "reifen", available: true },
+  { name: "Batterien", category: "batterie", available: false },
 ];
 
 const partsList = document.getElementById("partsList");

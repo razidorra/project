@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JS -->
+    <script defer src="index.js"></script>
 
     <!-- Tailwind CDN + Daisy UI-->
 
@@ -23,6 +25,11 @@
     />
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <title>Autoflow</title>
   </head>
 
@@ -72,20 +79,20 @@
             >
 
             <span class="text-lg"
-              >01762 502-2792 <sup class="text-[10px]">(1)</sup></span
-            >
+              >01762 502-2792 <sup class="text-[10px]"></sup
+            ></span>
           </div>
 
           <div class="flex">
-            <button
+            <a
               class="bg-gray-600 text-white px-6 py-2 rounded-t-lg font-bold"
+              href="#kontakt"
+              >Kontakt</a
             >
-              Kontakt
-            </button>
 
             <a
               class="bg-gray-100 text-gray-500 px-6 py-2 rounded-t-lg font-bold border-x border-t border-gray-200"
-              href="uberuns.html"
+              href="#uberuns"
               >Über uns</a
             >
           </div>
@@ -97,9 +104,9 @@
           class="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm font-semibold"
         >
           <div class="flex gap-8">
-            <a href="#" class="hover:underline">So geht's</a>
+            <a href="#preisr" class="hover:underline">So geht's</a>
 
-            <a href="#" class="hover:underline">Hilfe</a>
+            <a href="#hilfe" class="hover:underline">Hilfe</a>
           </div>
 
           <div class="flex items-center gap-1 text-gray-300">
@@ -128,13 +135,17 @@
     </header>
 
     <main class="max-w-7xl mx-auto p-6 grid gap-8 md:grid-cols-2">
-      <section class="bg-white p-8 rounded-4xl shadow-md md:col-span-2">
+      <section
+        id="uberuns"
+        class="bg-white p-8 rounded-4xl shadow-md md:col-span-2"
+      >
         <div
           class="hero bg-gradient-to-r from-blue-50 to-orange-50 rounded-3xl"
         >
           <div class="hero-content text-center">
             <div class="max-w-2xl">
-              <h1 class="text-5xl font-bold mb-4">Über unsere Werkstatt</h1>
+              <h1 class="text-5xl font-bold mb-4">Autoflow Werkstatt</h1>
+              <i class="fas fa-info-circle text-orange-500 mr-2"></i>
               – Ihre Kfz-Werkstatt in Deutschland
 
               <!-- Car Icons -->
@@ -168,7 +179,10 @@
                 Service – wir bringen Ihr Fahrzeug wieder sicher auf die Straße.
               </p>
 
-              <button class="btn btn-primary mt-4">Jetzt Termin buchen</button>
+              <button class="btn btn-primary mt-4 font-semibold">
+                <i class="fas fa-calendar-alt"></i>
+                Jetzt Termin buchen
+              </button>
             </div>
           </div>
         </div>
@@ -176,8 +190,11 @@
 
       <!-- Preisrechner -->
 
-      <section class="bg-white p-8 rounded-3xl shadow-md">
-        <h2 class="text-xl font-semibold mb-5">Preisrechner</h2>
+      <section id="preisr" class="bg-white p-8 rounded-3xl shadow-md">
+        <h2 class="text-xl font-semibold mb-5 flex items-center gap-2">
+          <i class="fas fa-calculator"></i>
+          Preisrechner
+        </h2>
 
         <div class="space-y-3">
           <label class="flex items-center gap-2">
@@ -209,6 +226,30 @@
 
             Inspektion (150€)
           </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="service" value="60" />
+
+            Ölfilter Wechsel (60€)
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="service" value="45" />
+
+            Luftfilter Wechsel (45€)
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="service" value="110" />
+
+            Zündkerzen Wechsel (110€)
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="service" value="85" />
+
+            Scheibenwischer Wechsel (85€)
+          </label>
         </div>
 
         <p class="mt-5 font-bold">
@@ -221,7 +262,10 @@
       <!-- Ersatzteile -->
 
       <section class="bg-white p-6 rounded-3xl shadow-md">
-        <h2 class="text-xl font-semibold mb-4">Ersatzteil-Katalog</h2>
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          <i class="fas fa-cogs"></i>
+          Ersatzteil-Katalog
+        </h2>
 
         <select id="filter" class="w-full border p-2 rounded-lg mb-4">
           <option value="all">Alle</option>
@@ -233,6 +277,10 @@
           <option value="filter">Filter</option>
 
           <option value="available">Nur verfügbar</option>
+
+          <option value="reifen">Reifen</option>
+
+          <option value="batterien">Batterien</option>
         </select>
 
         <div id="partsList" class="grid gap-4 sm:grid-cols-2"></div>
@@ -240,38 +288,54 @@
 
       <!-- Buchung -->
 
-      <section class="bg-white p-6 rounded-3xl shadow-md md:col-span-2">
-        <h2 class="text-xl font-semibold mb-4">Service buchen</h2>
+      <section
+        id="kontakt"
+        class="bg-white p-6 rounded-3xl shadow-md md:col-span-2"
+      >
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          <i class="fas fa-calendar-check"></i>
+          Service Buchen
+        </h2>
 
         <form id="bookingForm" class="grid gap-4 md:grid-cols-3">
-          <input
-            type="text"
-            id="name"
-            placeholder="Name"
-            class="border p-2 rounded-lg"
-            required
-          />
+          <div class="flex items-center gap-2">
+            <i class="fas fa-user text-gray-400"></i>
+            <input
+              type="text"
+              id="name"
+              placeholder="Name"
+              class="border p-2 rounded-lg flex-1"
+              required
+            />
+          </div>
 
-          <input
-            type="email"
-            id="email"
-            placeholder="E-Mail"
-            class="border p-2 rounded-lg"
-            required
-          />
+          <div class="flex items-center gap-2">
+            <i class="fas fa-envelope text-gray-400"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="E-Mail"
+              class="border p-2 rounded-lg flex-1"
+              required
+            />
+          </div>
 
-          <input
-            type="text"
-            id="plate"
-            placeholder="Kennzeichen"
-            class="border p-2 rounded-lg"
-            required
-          />
+          <div class="flex items-center gap-2">
+            <i class="fas fa-car text-gray-400"></i>
+            <input
+              type="text"
+              id="plate"
+              placeholder="Kennzeichen"
+              class="border p-2 rounded-lg flex-1"
+              required
+            />
+          </div>
 
           <button
             type="submit"
-            class="bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-700 md:col-span-3"
+            class="bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-700 md:col-span-3 flex items-center justify-center gap-2"
           >
+            <i class="fas fa-clock"></i>
             Termin buchen
           </button>
         </form>
@@ -281,21 +345,25 @@
 
       <!-- Admin Dashboard -->
 
-      <section class="bg-white p-6 rounded-2xl shadow-md md:col-span-2">
-        <h2 class="text-xl font-semibold mb-4">Admin Dashboard</h2>
+      <section
+        id="hilfe"
+        class="bg-white p-6 rounded-2xl shadow-md md:col-span-2"
+      >
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          <i class="fas fa-user"></i>
+          <i class="fas fa-wrench"></i>
+          Admin Dashboard
+        </h2>
 
         <div id="orders" class="grid gap-4 md:grid-cols-2"></div>
       </section>
     </main>
-
-    <script src="index.js"></script>
+    <footer
+      class="footer sm:footer-horizontal footer-center h-20 bg-gray-800 text-gray-100 shadow-sm"
+    >
+      <aside>
+        <p>Copyright © 2026 - All right reserved by ACME Industries Ltd</p>
+      </aside>
+    </footer>
   </body>
-
-  <footer
-    class="footer sm:footer-horizontal footer-center h-20 bg-gray-800 text-gray-100 shadow-sm"
-  >
-    <aside>
-      <p>Copyright © 2026 - All right reserved by ACME Industries Ltd</p>
-    </aside>
-  </footer>
 </html>

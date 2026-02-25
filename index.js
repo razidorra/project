@@ -22,10 +22,10 @@ function calculateTotal() {
 const parts = [
   { name: "Bremsscheibe", category: "bremsen", available: true },
   { name: "LED Scheinwerfer", category: "lichter", available: false },
-  { name: "Ölfilter", category: "filter", available: true },
+  { name: "Ölfilter", category: "filter", available: false },
   { name: "Bremsbläge", category: "bremsen", available: true },
   { name: "Reifen", category: "reifen", available: true },
-  { name: "Batterien", category: "batterie", available: false },
+  { name: "Batterien", category: "batterien", available: true },
 ];
 
 const partsList = document.getElementById("partsList");

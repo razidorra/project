@@ -73,8 +73,8 @@ form.addEventListener("submit", function (e) {
 const ordersContainer = document.getElementById("orders");
 
 let orders = JSON.parse(localStorage.getItem("orders")) || [
-  { id: 1, customer: "Max Mustermann", status: "Offen" },
-  { id: 2, customer: "Erika Musterfrau", status: "In Arbeit" },
+  { id: 1, customer: "Eli Müller", status: "Offen" },
+  { id: 2, customer: "John Don", status: "In Arbeit" },
 ];
 
 function saveOrders() {
